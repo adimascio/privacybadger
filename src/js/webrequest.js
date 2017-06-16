@@ -223,18 +223,18 @@ function onHeadersReceived(details) {
       };
     }
 
-    return {};
+    return;
   }
 
   var tabDomain = getHostForTab(tab_id);
   var requestDomain = window.extractHostFromURL(url);
    
   if (badger.isPrivacyBadgerDisabled(tabDomain)) {
-    return {};
+    return;
   }
 
   if (!isThirdPartyDomain(requestDomain, tabDomain)) {
-    return {};
+    return;
   }
 
   var requestAction = checkAction(tab_id, url, false, details.frameId);
